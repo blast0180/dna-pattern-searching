@@ -53,7 +53,7 @@ int main() {
 
 	stmt = con->createStatement();
 	stmt->execute("drop table if exists PatternCnt");
-	stmt->execute("create table PatternCnt as select pattern, count(pattern) as repeats from Pattern group by pattern having count(*) > 1 order by pattern;"); 
+	stmt->execute("create table PatternCnt as select pattern, count(pattern) as repeats from Pattern group by pattern having count(*) > 1 order by repeats desc;"); 
 	delete stmt;
 
 	cout << "Repeats generated." << endl;
